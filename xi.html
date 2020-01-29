@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="Shift_JIS">
-<title>チンチロ</title>
+    <meta charset='ANSI'>
+    
+    <title>チンチロ</title>
 </head>
 <body>
 <div id="message1" style="position:absolute; left:10px; top:10px">
@@ -14,8 +15,8 @@
 <div id="message3" style="position:absolute; left:10px; top:70px">
 勝敗の結果は ？
 </div>
-<form style="position:absolute; left:10px; top:70px">
-あなたの選択は　
+<form style="position:absolute; left:10px; top:100px">
+振る強さは ？　
 <select id="mypower">
 <option>弱め</option>
 <option>強め</option>
@@ -26,12 +27,22 @@
 <script>
 function myGame(){
 mypower = document.getElementById("mypower").selectedIndex;
-myxi1 = Math.floor(Math.random()*30) + 1;
-myxi2 = Math.floor(Math.random()*30) + 1;
-myxi3 = Math.floor(Math.random()*30) + 1;
+myxi1 = Math.floor(Math.random()*6) + 1;
+myxi2 = Math.floor(Math.random()*6) + 1;
+myxi3 = Math.floor(Math.random()*6) + 1;
 hisxi1 = Math.floor(Math.random()*6) + 1;
 hisxi2 = Math.floor(Math.random()*6) + 1;
 hisxi3 = Math.floor(Math.random()*6) + 1;
+
+if(myxi1+myxi2+myxi3 > hisxi1 + hiaxi2 + hisxi3){
+    judge = "負け"
+}else if(myxi1+myxi2+myxi3 < hisxi1 + hiaxi2 + hisxi3){
+    judge = "勝ち"
+}else{
+    judge = "引き分け"
+}
+
+
 
 document.getElementById("message1").innerHTML = "あなたの出目は "+myxi1 +"  "+myxi2 +"  "+myxi3 +"  ";
 document.getElementById("message2").innerHTML = "相手の出目は "+hisxi1 +"  "+hisxi2 +"  "+hisxi3 +"  ";
